@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - ToolsDeck</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #039be5;
+        }
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #039be5;
+            border-bottom: 2px solid #039be5;
+            padding-bottom: 5px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        .contact-icon {
+            font-size: 24px;
+            width: 40px;
+            margin-right: 15px;
+            color: #039be5;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #039be5;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f1f8ff;
+            border-radius: 5px;
+        }
+        .faq-answer {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: none;
+        }
+        .faq-question.active + .faq-answer {
+            display: block;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Support</h1>
+        <p>ToolsDeck</p>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2>Contact Us</h2>
+            <p>If you encounter any issues while using our app or have any suggestions, please contact us through the following methods:</p>
+            
+            <div class="contact-method">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <h3>Email</h3>
+                    <p>songcfsongcf@gmail.com</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I update the app?</div>
+                <div class="faq-answer">
+                    <p>Please open the App Store, click on the profile icon in the top right corner to enter the account page, pull down to refresh. If there are available updates, the app will be listed under updates. Click the "Update" button to complete the update.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I do if some features are not working properly?</div>
+                <div class="faq-answer">
+                    <p>Please try the following solutions first:</p>
+                    <ol>
+                        <li>Ensure your device is connected to the internet</li>
+                        <li>Restart the app</li>
+                        <li>Check if it's the latest version</li>
+                        <li>Restart your device</li>
+                    </ol>
+                    <p>If the problem persists, please contact us and provide detailed error information and screenshots.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container">
+            <h2>User Feedback</h2>
+            <p>We value your feedback, your suggestions are important to us for improving the product.</p>
+            <p>Please send an email to songcfsongcf@gmail.com or leave a review in the App Store.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ToolsDeck. All rights reserved.</p>
+        <p>This support page is powered by Firebase Hosting</p>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

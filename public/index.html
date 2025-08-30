@@ -1,89 +1,299 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.2.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.2.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <title>ToolsDeck - An app integrating multiple practical tools to meet your daily needs and enhance work efficiency and quality of life</title>
 
     <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+      :root {
+        --primary-color: #039be5;
+        --secondary-color: #ffa100;
+        --dark-color: #333;
+        --light-color: #f8f9fa;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        background-color: var(--light-color);
+      }
+      
+      header {
+        background: linear-gradient(135deg, var(--primary-color), #0277bd);
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      
+      .logo {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 1.5rem;
+        opacity: 0.9;
+      }
+      
+      .cta-button {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+      
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        background-color: #ff8f00;
+      }
+      
+      .features {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+      }
+      
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+      
+      .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+      
+      .screenshots {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        text-align: center;
+      }
+      
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      
+      .screenshot {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        height: 500px;
+      }
+      
+      .screenshot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .testimonials {
+        background-color: white;
+        padding: 3rem 1rem;
+        margin: 3rem 0;
+      }
+      
+      .testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .testimonial {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem;
+      }
+      
+      .testimonial-text {
+        font-style: italic;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: #555;
+      }
+      
+      .testimonial-author {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+      
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      
+      .footer-links {
+        margin: 1rem 0;
+      }
+      
+      .footer-links a {
+        color: white;
+        margin: 0 1rem;
+        text-decoration: none;
+      }
+      
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+      
+      #load {
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        font-size: 13px;
+        margin-top: 1rem;
+      }
+      
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+        
+        .subtitle {
+          font-size: 1rem;
+        }
+        
+        .section-title {
+          font-size: 1.7rem;
+        }
+        
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <header>
+      <img class="logo" src="images/app_icon.png" width="100" height="100">
+      <h1>ToolsDeck</h1>
+      <p class="subtitle">An app integrating multiple practical tools to meet your daily needs and enhance work efficiency and quality of life</p>
+      <a href="https://apps.apple.com/app/id6751165965" class="cta-button">Download Now</a>
+    </header>
+    
+    <section class="features">
+      <h2 class="section-title">Core Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📏</div>
+          <h3 class="feature-title">Unit Converter</h3>
+          <p>Supports quick conversion between various units including length, weight, volume, and temperature.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🧮</div>
+          <h3 class="feature-title">Scientific Calculator</h3>
+          <p>A powerful scientific calculator supporting complex mathematical operations and functions.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3 class="feature-title">Notepad</h3>
+          <p>A simple and easy-to-use note-taking tool supporting text, images, and voice memos.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 class="feature-title">Todo List</h3>
+          <p>Manage your to-do lists to help you organize your daily work.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3 class="feature-title">Color Picker</h3>
+          <p>Select and get color values for easy design work.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Privacy Protection</h3>
+          <p>All data is stored locally to protect your privacy and security.</p>
+        </div>
+      </div>
+    </section>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <section class="screenshots">
+      <h2 class="section-title">App Interface Preview</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot"><img src="images/screenshot_1.png" alt="ToolsDeck Main Screen"></div>
+        <div class="screenshot"><img src="images/screenshot_2.png" alt="Calculator Screen"></div>
+        <div class="screenshot"><img src="images/screenshot_3.png" alt="Color Picker Screen"></div>
+        <div class="screenshot"><img src="images/screenshot_4.png" alt="Level Screen"></div>
+      </div>
+    </section>
+    
+    <section class="testimonials">
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <p class="testimonial-text">"This app has completely changed the way I work. All the tools I need are integrated into one app, no more downloading a bunch of single-function apps!"</p>
+          <p class="testimonial-author">- Mr. Zhang, Product Manager</p>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <p>ToolsDeck - Making Life Easier</p>
+      <div class="footer-links">
+        <a href="support.html">Support</a>
+      </div>
+      <p>&copy; 2025 ToolsDeck. All rights reserved.</p>
+      <p>This support page is powered by Firebase Hosting</p>
+    </footer>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
   </body>
 </html>
